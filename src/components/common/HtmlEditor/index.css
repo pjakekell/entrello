@@ -1,0 +1,39 @@
+.ce-block__content {
+  margin: 0;
+  max-width: 750px;
+}
+.codex-editor__redactor {
+  margin-right: 50px;
+}
+.ce-block--focused {
+  margin-right: -50px;
+  padding-right: 50px;
+}
+.ce-toolbar__actions {
+  right: -105px;
+}
+.toolbar-small-right .ce-toolbar__actions {
+  right: -80px;
+}
+
+.ce-toolbar__plus {
+  left: 5px;
+}
+.ce-toolbar__settings-btn {
+  width: 18px;
+}
+.ce-toolbox {
+  left: auto;
+  right: 0;
+}
+.ce-toolbox {
+  position: absolute;
+  top: calc(26px + var(--gap));
+  left: 0;
+}
+.ce-toolbox .ce-popover {
+  right: 0;
+}
+.ce-popover__items {
+  margin-top: 5px;
+}

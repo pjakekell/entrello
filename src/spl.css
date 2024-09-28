@@ -1,0 +1,148 @@
+@layer utilities {
+  .grid .row {
+    @apply flex flex-nowrap overflow-hidden;
+  }
+  .cell {
+    @apply flex-none border-r border-gray-200;
+  }
+  .wall {
+    stroke-width: 25;
+    @apply stroke-current text-transparent fill-current;
+  }
+  .selection-rect {
+    fill: none;
+    outline: 40px dashed #3b82f6;
+  }
+  .small-grid {
+    stroke-width: 10;
+    fill: none;
+    @apply stroke-current text-gray-400;
+  }
+  .spl-label {
+    font-size: 80mm;
+    @apply fill-current text-gray-500;
+  }
+  .shadow.active-shadow {
+    fill: #bbefff;
+    stroke-width: 60;
+    stroke: #a8e5ff;
+  }
+  .shadow.active-shadow.highlight {
+    fill: #34d399;
+  }
+  .shadow.active-shadow.deleted {
+    fill: #f87171;
+  }
+  .seat circle {
+    stroke-width: 60;
+    cursor: pointer;
+  }
+  .seat.status-1 {
+    /* 0b1 offered */
+    stroke: #6b7280;
+  }
+  .seat.status-1 circle {
+    fill: #eee !important;
+  }
+  .seat.corrupt-seat circle {
+    fill: #faa !important;
+  }
+  .seat.corrupt-seat .seat-label {
+    fill: #faa !important;
+  }
+  .seat.active,
+  .seat.status-1.active,
+  .seat.status-2.active,
+  .seat.status-4.active,
+  .seat.status-8.active {
+    stroke: #3b82f6 !important;
+    fill: #3b82f6 !important;
+  }
+  .seat.active .seat-label,
+  .seat.status-1.active .seat-label,
+  .seat.status-2.active .seat-label,
+  .seat.status-4.active .seat-label,
+  .seat.status-8.active .seat-label {
+    fill: #3b82f6 !important;
+  }
+  .seat.active circle,
+  .seat.status-1.active circle,
+  .seat.status-2.active circle,
+  .seat.status-4.active circle,
+  .seat.status-8.active circle {
+    fill: #fff !important;
+  }
+  .seat.status-2 {
+    /* 10b0 claimed, but still with expiry */
+    stroke: #f59e0b;
+    stroke-dasharray: "3 1";
+  }
+  .seat.status-2 .seat-label {
+    fill: #f59e0b !important;
+    fill: none !important;
+  }
+  .seat.status-4 {
+    /* 100b0 completed booking, unpaid */
+    stroke: #6b2780 !important;
+  }
+  .seat.status-4 circle {
+    fill: #eee !important;
+  }
+  .seat.status-4 .seat-label {
+    fill: #6b2780 !important;
+  }
+  .seat.status-8 {
+    /* 1000b0 pending for payment booking, unpaid */
+    stroke: #f59e0b;
+    fill: none !important;
+  }
+  .seat.status-8 .seat-label {
+    fill: #f59e0b !important;
+  }
+  .seat.status-16 {
+    /* 10000b0 paid booking */
+    stroke: #108981;
+    fill: none !important;
+  }
+  .seat.status-16 .seat-label {
+    fill: #108981 !important;
+  }
+  .seat-label {
+    font-size: 60mm;
+    fill: white;
+    cursor: pointer;
+  }
+  .sec-create-btn {
+    font-size: 30em;
+    opacity: 0.6;
+    cursor: pointer;
+  }
+  .sec-create-btn rect {
+    fill: #f3f4f6;
+    stroke: #6b7280;
+    stroke-width: 5mm;
+    outline: 5mm dotted #d1d5d8;
+    outline-offset: 5mm;
+  }
+  .sec-create-btn text {
+    font-size: 50mm;
+    line-height: 50mm;
+    fill: #6b7280;
+  }
+  .sec-create-btn text:hover rect {
+    fill: darken(#f3f4f6, 3%);
+  }
+  .sec-create-btn .sec-desc {
+    fill: #6b7280;
+    font-size: 80mm;
+  }
+  .sec.active,
+  .sgr.active {
+    outline: 15mm dashed #2563eb;
+    outline-offset: 20mm;
+  }
+  .sec-placement .seats {
+    outline: 10mm dotted #2563eb;
+    outline-offset: 20mm;
+  }
+}

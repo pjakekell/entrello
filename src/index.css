@@ -1,0 +1,321 @@
+@import "./react-select.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .menu-title {
+    @apply py-2 px-4 text-xs text-gray-500 font-bold uppercase tracking-wider;
+  }
+  .menu-btn {
+    @apply my-1 py-2 text-sm text-gray-500 transition duration-200 ease-in-out rounded flex items-center;
+  }
+  [type="text"],
+  [type="email"],
+  [type="url"],
+  [type="password"],
+  [type="number"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="search"],
+  [type="tel"],
+  [type="time"],
+  [type="week"],
+  [multiple],
+  textarea,
+  select {
+    padding-top: 0.25rem;
+    padding-bottom: 0.15rem;
+  }
+}
+
+@layer utilities {
+  .ring-loader {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+  }
+  .ring-loader:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  #arrow,
+  #arrow::before {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: inherit;
+  }
+
+  #arrow {
+    visibility: hidden;
+  }
+
+  #arrow::before {
+    visibility: visible;
+    content: "";
+    transform: rotate(45deg);
+  }
+  #tooltip[data-popper-placement^="top"] > #arrow {
+    bottom: -4px;
+  }
+
+  #tooltip[data-popper-placement^="bottom"] > #arrow {
+    top: -4px;
+  }
+
+  #tooltip[data-popper-placement^="left"] > #arrow {
+    right: -4px;
+  }
+
+  #tooltip[data-popper-placement^="right"] > #arrow {
+    left: -4px;
+  }
+  .grid .row {
+    @apply flex flex-nowrap overflow-hidden;
+  }
+  .cell {
+    @apply flex-none border-r border-gray-200;
+  }
+  .wall {
+    stroke-width: 25;
+    @apply stroke-current text-transparent fill-current;
+  }
+  .selection-rect {
+    fill: none;
+    outline: 40px dashed #3b82f6;
+  }
+  .small-grid {
+    stroke-width: 10;
+    fill: none;
+    @apply stroke-current text-gray-400;
+  }
+  .spl-label {
+    font-size: 80mm;
+    @apply fill-current text-gray-500;
+  }
+  .shadow.active-shadow {
+    fill: #bbefff;
+    stroke-width: 60;
+    stroke: #a8e5ff;
+  }
+  .shadow.active-shadow.highlight {
+    fill: #34d399;
+  }
+  .shadow.active-shadow.deleted {
+    fill: #f87171;
+  }
+  .seat circle {
+    stroke-width: 60;
+    cursor: pointer;
+  }
+  .seat.status-1 {
+    /* 0b1 offered */
+    stroke: #ddd;
+  }
+  .seat.status-1 circle {
+    fill: #eee !important;
+  }
+  .seat.status-1 text {
+    fill: #999 !important;
+  }
+  .seat.corrupt-seat circle {
+    fill: #faa !important;
+  }
+  .seat.corrupt-seat .seat-label {
+    fill: #faa !important;
+  }
+  .seat.active {
+    stroke: #3b82f6 !important;
+    fill: #3b82f6 !important;
+  }
+  .seat.active .seat-label {
+    fill: #3b82f6 !important;
+  }
+  .seat.active circle,
+  .seat.status-1 circle,
+  .seat.status-2 circle,
+  .seat.status-4 circle,
+  .seat.status-16 circle,
+  .seat.status-32 circle,
+  .seat.status-64 circle,
+  .seat.status-144 circle,
+  .seat.status-160 circle,
+  .seat.status-224 circle,
+  .seat.status-208 circle,
+  .seat.status-384 circle,
+  .seat.status-448 circle,
+  .seat.status-480 circle,
+  .seat.status-128 circle,
+  .seat.status-256 circle,
+  .seat.status-192 circle {
+    fill: #eee !important;
+  }
+  .seat.active circle,
+  .seat.status-1.active circle,
+  .seat.status-2.active circle,
+  .seat.status-4.active circle,
+  .seat.status-16.active circle,
+  .seat.status-32.active circle,
+  .seat.status-64.active circle,
+  .seat.status-144.active circle,
+  .seat.status-160.active circle,
+  .seat.status-208.active circle,
+  .seat.status-224.active circle,
+  .seat.status-128.active circle,
+  .seat.status-384.active circle,
+  .seat.status-480.active circle,
+  .seat.status-448.active circle,
+  .seat.status-256.active circle,
+  .seat.status-192.active circle {
+    fill: #fff !important;
+  }
+  .seat.status-144 circle,
+  .seat.status-208 circle,
+  .seat.status-16 circle {
+    stroke: #eab308 !important;
+    stroke-dasharray: 40px !important;
+  }
+  /* 8 ... offered */
+  .seat.status-8 circle {
+    stroke: #eee !important;
+    stroke-dasharray: 40px !important;
+  }
+  .seat.status-144 .seat-label,
+  .seat.status-16 .seat-label {
+    fill: #eab308 !important;
+  }
+  .seat.status-192.split-order circle,
+  .seat.status-64 circle,
+  .seat.status-128 {
+    /* 100b0 completed booking, unpaid */
+    stroke: #818cf8 !important;
+  }
+  .seat.status-64 .seat-label,
+  .seat.status-128 .seat-label {
+    fill: #818cf8 !important;
+  }
+  .seat.status-256 circle,
+  .seat.status-448.split-order circle,
+  .seat.status-384 circle {
+    /* 100b0 completed booking, unpaid */
+    stroke: #999 !important;
+  }
+  .seat.status-256 .seat-label,
+  .seat.status-448 .seat-label,
+  .seat.status-384 .seat-label {
+    fill: #999 !important;
+  }
+  .seat.status-160 .seat-label,
+  .seat.split-order .seat-label {
+    fill: #c026d3 !important;
+  }
+  .seat.status-160 circle,
+  .seat.status-192 circle {
+    stroke: #c026d3 !important;
+  }
+  .seat.disabled {
+    opacity: 0.2;
+  }
+  .seat.status-208.split-order .seat-label,
+  .seat.status-192 .seat-label {
+    fill: #c026d3 !important;
+  }
+  .seat-label {
+    font-size: 60mm;
+    fill: white;
+    cursor: pointer;
+  }
+  .sec-create-btn {
+    font-size: 30em;
+    opacity: 0.6;
+    cursor: pointer;
+  }
+  .sec-create-btn rect {
+    fill: #f3f4f6;
+    stroke: #6b7280;
+    stroke-width: 5mm;
+    outline: 5mm dotted #d1d5d8;
+    outline-offset: 5mm;
+  }
+  .sec-create-btn text {
+    font-size: 50mm;
+    line-height: 50mm;
+    fill: #6b7280;
+  }
+  .sec-create-btn text:hover rect {
+    fill: darken(#f3f4f6, 3%);
+  }
+  .sec-create-btn .sec-desc {
+    fill: #6b7280;
+    font-size: 80mm;
+  }
+  .sec.active,
+  .sgr.active {
+    outline: 15mm dashed #2563eb;
+    outline-offset: 20mm;
+  }
+  .sec-placement .seats {
+    outline: 10mm dotted #2563eb;
+    outline-offset: 20mm;
+  }
+
+  /* react-select */
+  .react-select input {
+    --tw-ring-color: transparent !important;
+    border-color: transparent !important;
+  }
+  .react-select > div {
+    min-height: 28px;
+    font-size: 0.75rem;
+    border-radius: 0.375rem;
+  }
+  .react-select > div > div {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.17em;
+}
+h4 {
+  font-size: 1.33em;
+}
+h5 {
+  font-size: 0.83em;
+}
+h6 {
+  font-size: 0.67em;
+}
